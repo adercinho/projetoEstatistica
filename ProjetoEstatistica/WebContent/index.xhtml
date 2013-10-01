@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="css/estilo.css"/> 
+        <title>Gerador Arquivo CSV</title>
+    </h:head>
+    <h:body>
+        <div id="divContent">
+            <div id="divCabecalho"><h2><h:outputText value="Estatisticas"/></h2>
+                <h:form id="frmMensagem">
+                    <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true"  />
+                </h:form>
+            </div>
+            <div id="divCorpo">                
+                <h:form id="frmPrincipal">                    
+                    <p:panel header="Parâmetros"> 
+                        <h:panelGrid columns="4" cellspacing="1" cellpadding="2">
+                            
+
+                            <h:outputText class="label" value="Tipo de Indicador: "/>                            
+                            <p:inputText id="txtCoordX1" value="#{leitorEstatisticaBean.tipoIndicador}" required="true" requiredMessage="Informe o tipo de indicador" />
+
+                            <h:outputText class="label" value="Cluster: " />                            
+                            <p:inputText id="txtCoordX2" value="#{leitorEstatisticaBean.cluster}" required="true" requiredMessage="Informe o cluster"/>                          
+                        </h:panelGrid>                        
+
+                    </p:panel>
+                    <div id="divBtns">
+                        <p:commandButton  id="btnGerarArquivo" action="#{leitorEstatisticaBean.quantidadeTipoIndicadorPorCluster}" update="idQuantidade" styleClass="ui-priority-primary"  value="Gerar Resultado"/>    
+                    </div>
+                    
+                    <h:outputLabel id="idQuantidade">Quantidade: ${leitorEstatisticaBean.resultado}</h:outputLabel>
+                </h:form>
+            </div>
+            <div id="divRodape">
+
+            </div>
+        </div>
+
+    </h:body>
+</html>
+
