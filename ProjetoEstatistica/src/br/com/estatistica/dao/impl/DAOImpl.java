@@ -8,7 +8,7 @@ import br.com.estatistica.dao.DAO;
 
 public class DAOImpl<T, K> implements DAO<T, K> {
 
-	private EntityManager em;
+	protected EntityManager em;
 
 	private Class<T> entityClass;
 

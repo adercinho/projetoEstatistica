@@ -1,7 +1,8 @@
 package br.com.estatistica.dao;
 
 
-public interface EstatisticaDAO {
+
+public interface EstatisticaDAO{
 	
-	int getQuantidadeTipoIndicadorPorCluster(String tipoIndicador, String cluster);
+	int getQuantidadeTipoIndicadorPorCluster(Integer tipoIndicador, String cluster);
 }
