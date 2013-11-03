@@ -21,15 +21,15 @@
                         <h:panelGrid columns="4" cellspacing="1" cellpadding="2">
                             
 
-                           <h:outputText value="Tipo de indicador:" />  
-					        <p:selectOneMenu panelStyle="width:350px"  
-					                         effect="fade" var="caracteristicaDimensao" style="width:360px"  filter="true" filterMatchMode="startsWith">  
+                           <h:outputText value="Tipo de indicador:" />   
+					        <p:selectOneMenu panelStyle="width:350px" value="#{leitorEstatisticaBean.tipoMarcador}" required="true" requiredMessage="Selecione um Tipo de indicador"
+					                         effect="fade" var="tipoMarcador" style="width:360px"  filter="true" filterMatchMode="startsWith">  
 						            <f:selectItem itemLabel="Selecionar..." itemValue="" />  
-						            <f:selectItems value="#{leitorEstatisticaBean.listaCaracteristicasDimensao}" var="caracteristicaDimensao" itemLabel="#{caracteristicaDimensao.nome}" itemValue="#{caracteristicaDimensao}"/>  
-						  
-						            <p:column>  
-						                #{caracteristicaDimensao.nome} - #{caracteristicaDimensao.id}  
+						            <f:selectItems value="#{leitorEstatisticaBean.listaTiposMarcadores}" var="tipoMarcador" itemLabel="#{tipoMarcador.nome}" itemValue="#{tipoMarcador}"/>  
+						  			  <p:column>  
+						                #{tipoMarcador.nome} - #{tipoMarcador.id}  
 						            </p:column>  
+						          
 		        			</p:selectOneMenu>
 		        			
                             <h:outputText class="label" value="Cluster: " />                            
@@ -43,6 +43,28 @@
                     
                     
                     <h:outputLabel id="idQuantidade">Quantidade: ${leitorEstatisticaBean.resultado}</h:outputLabel>
+                </h:form>
+                 <h:form id="frmClusterizacao">                    
+                    <p:panel header="Clusterização"> 
+                        <h:panelGrid columns="2" cellspacing="1" cellpadding="2">
+                            
+ 						   <h:outputText value="Arquivo" /> 
+ 						   <p:fileUpload fileUploadListener="#{clusterizacaoBean.handleFileUpload}" mode="advanced" dragDropSupport="false" sizeLimit="100000" fileLimit="3" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" /> 
+ 						   
+ 						   
+                           <h:outputText value="Tipo de Clusterização" />   
+					        <p:selectOneMenu panelStyle="width:350px" value="#{clusterizacaoBean.tipoClusterizacao}" required="true" requiredMessage="Selecione o tipo de clusterização" var="tipoClusterizacao" style="width:360px">  
+						            <f:selectItem itemLabel="Selecionar..." itemValue="" />
+						            <f:selectItem itemLabel="Temporalmente" itemValue="temporalmente" />    
+						          	<f:selectItem itemLabel="Espacial" itemValue="espacial" />   
+		        			</p:selectOneMenu>
+		        			                        
+                        </h:panelGrid>                        
+
+                    </p:panel>
+                    <div id="divBtns">
+                        <p:commandButton  id="btnGerarClusterizacao" styleClass="ui-priority-primary"  value="Clusterizar"/>    
+                    </div>
                 </h:form>
             </div>
             <div id="divRodape">

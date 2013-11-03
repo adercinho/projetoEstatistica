@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.estatistica.vo.Estatistica;
-import br.com.estatistica.vo.Marcador;
 
 public class LerArquivoEstatistica {  
     
@@ -22,7 +21,7 @@ public class LerArquivoEstatistica {
 	                     
 	    String linha;  
 	    while ((linha = br.readLine()) != null) {  
-	        String registro[] = linha.split("\t");  
+	        String registro[] = linha.split(",");  
 	        lista.add(registro);  
 	    } 
     }  
@@ -34,12 +33,12 @@ public class LerArquivoEstatistica {
             for (int i = 1; i < lista.size(); i++) {  
                 Estatistica estatistica = new Estatistica();
                estatistica.setIdUsuario(Long.parseLong(lista.get(i)[0]));
-                if(lista.get(i)[1].equals("DimensaoAmbiental")){
-                	estatistica.setMarcador(Marcador.DIMENSAOAMBIENTAL);
-                }else{
-                	estatistica.setMarcador(Marcador.DIMENSAOSOCIAL);
-                }
-                estatistica.setTipoMarcador(lista.get(i)[2]);
+//                if(lista.get(i)[1].equals("DimensaoAmbiental")){
+//                	estatistica.setMarcador(Marcador.DIMENSAOAMBIENTAL);
+//                }else{
+//                	estatistica.setMarcador(Marcador.DIMENSAOSOCIAL);
+//                }
+                estatistica.setCodTipoMarcador(Integer.parseInt(lista.get(i)[2]));
                 estatistica.setAno(Integer.parseInt(lista.get(i)[3]));
                 estatistica.setMes(Integer.parseInt(lista.get(i)[4]));
                 estatistica.setSemana(Integer.parseInt(lista.get(i)[5]));

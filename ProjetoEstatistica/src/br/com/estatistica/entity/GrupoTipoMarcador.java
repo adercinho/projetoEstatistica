@@ -16,18 +16,20 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "TIPO_DIMENSAO")
-public class TipoDimensao {
+@Table(name = "GRUPO_TIPO_MARCADOR")
+public class GrupoTipoMarcador {
 
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name = "COD_TIPO_DIMENSAO")
+	@Column(name = "CD_GRUPO_TP_MARCADOR")
 	private Integer id;
+	
 	private String nome;
 	@ManyToOne
-	@JoinColumn(name="COD_DIMENSAO")
-	private Dimensao dimensao;
+	@JoinColumn(name="COD_MARCADOR")
+	private Marcador marcador;
+	
 	@OneToMany(cascade=CascadeType.ALL)
-	private List<CaracteristicaDimensao> caracteristicas = new ArrayList<CaracteristicaDimensao>();
+	private List<TipoMarcador> tiposMarcadores = new ArrayList<TipoMarcador>();
 	
 	public Integer getId() {
 		return id;
@@ -41,17 +43,18 @@ public class TipoDimensao {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public List<CaracteristicaDimensao> getCaracteristicas() {
-		return caracteristicas;
+	
+	public Marcador getMarcador() {
+		return marcador;
 	}
-	public void setCaracteristicas(List<CaracteristicaDimensao> caracteristicas) {
-		this.caracteristicas = caracteristicas;
+	public void setMarcador(Marcador marcador) {
+		this.marcador = marcador;
 	}
-	public Dimensao getDimensao() {
-		return dimensao;
+	public List<TipoMarcador> getTiposMarcadores() {
+		return tiposMarcadores;
 	}
-	public void setDimensao(Dimensao dimensao) {
-		this.dimensao = dimensao;
+	public void setTiposMarcadores(List<TipoMarcador> tiposMarcadores) {
+		this.tiposMarcadores = tiposMarcadores;
 	}
 	
 	

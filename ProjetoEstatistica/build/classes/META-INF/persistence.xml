@@ -5,9 +5,9 @@
 
 	<persistence-unit name="BANCO_MYSQL" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<class>br.com.estatistica.entity.Dimensao</class>
-		<class>br.com.estatistica.entity.TipoDimensao</class>
-		<class>br.com.estatistica.entity.CaracteristicaDimensao</class>
+		<class>br.com.estatistica.entity.Marcador</class>
+		<class>br.com.estatistica.entity.GrupoTipoMarcador</class>
+		<class>br.com.estatistica.entity.TipoMarcador</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />

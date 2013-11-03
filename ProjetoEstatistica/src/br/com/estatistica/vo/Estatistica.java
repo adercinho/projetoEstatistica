@@ -1,11 +1,13 @@
 package br.com.estatistica.vo;
 
+import br.com.estatistica.entity.Marcador;
+
 
 public class Estatistica {
 
 	private Long idUsuario;
 	private Marcador marcador;
-	private String tipoMarcador;
+	private Integer codTipoMarcador;
 	private Integer ano;
 	private Integer mes;
 	private Integer semana;
@@ -31,14 +33,6 @@ public class Estatistica {
 
 	public void setMarcador(Marcador marcador) {
 		this.marcador = marcador;
-	}
-
-	public String getTipoMarcador() {
-		return tipoMarcador;
-	}
-
-	public void setTipoMarcador(String tipoMarcador) {
-		this.tipoMarcador = tipoMarcador;
 	}
 
 	public Integer getAno() {
@@ -119,6 +113,14 @@ public class Estatistica {
 
 	public void setCluster(String cluster) {
 		this.cluster = cluster;
+	}
+
+	public Integer getCodTipoMarcador() {
+		return codTipoMarcador;
+	}
+
+	public void setCodTipoMarcador(Integer codTipoMarcador) {
+		this.codTipoMarcador = codTipoMarcador;
 	}
 
 }
